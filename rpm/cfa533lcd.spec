@@ -33,6 +33,8 @@ install -m 0644 %{name}.service $RPM_BUILD_ROOT/usr/lib/systemd/system/%{name}.s
 /usr/bin/systemctl daemon-reload
 
 %postun
+/usr/bin/systemctl stop %{name}
+/usr/bin/systemctl disable %{name}
 /usr/bin/systemctl daemon-reload
 
 %clean
