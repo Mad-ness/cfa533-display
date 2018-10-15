@@ -46,6 +46,7 @@ $ sudo yum install -y rpm-build
 ```
 
 **Step 2. Prepare file system**
+
 On a build system create a non-privileged user, say *rpm*, and create required subdirectories in its home directory.
 ```
 $ sudo useradd -m rpm
