@@ -70,3 +70,20 @@ $ rpmbuild -ba cfa533lcd.spec
 If everything goes without errors the build package will be placed as *~/rpmbuild/RPMS/cfa533lcd-2.0-1.el7.noarch.rpm*. 
 See output logs for more details
 
+## Installation
+Install the package by any convinient way, for example
+```
+$ sudo yum install /path/to/rpm/cfa533lcd-2.0-1.el7.noarch.rpm
+```
+Enable it to be autoloadable when a target system boots
+```
+$ sudo systemctl enable cfa533lcd
+```
+And run it 
+```
+$ sudo systemctl start cfa533lcd
+```
+Check that it is running
+```
+$ systemctl status cfa533lcd
+```
