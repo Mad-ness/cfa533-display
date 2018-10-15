@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+action="$1"
+cfgfile="$2"
+keyvalue="$3"
+
+get_value() {
+    key="$1"
+    sed -n 's/^'$key'=\(.*\)/\1/p' $cfgfile
+}
+
+usage() {
+cat << "USAGE"
+
+readwriteconfig: read or write a text file of type VARIABLE=value, variable must be uppercase value may be mixed case.
+Read:        readwriteconfig -r filename variable
+Write:       readwriteconfig -w filename variable=value
+
+Examples:
+  Update value                readwriteconfig -w /etc/sysconfig/networking/profiles/default/ifcfg-eth0 IPADDR=192.168.1.113
+  Read value                  readwriteconfig -r /etc/sysconfig/networking/profiles/default/ifcfg-eth0 IPADDR
+
+Writing will return a single character A=Appended C=Changed E=Error N=File to large.
+The file must exist before trying to write to it.
+
+Reading will return the variables value only or nothing if the string is not found
+USAGE
+}
+
+set_value() {
+    local keyvalue="$1"
+    key=${keyvalue%=*}
+    value=${keyvalue#*=}
+    if grep -q ^$key $cfgfile; then
+        sed -ie 's/^'$key'=.*$/'$key'='$value'/g' $cfgfile
+    else
+        echo "$key=$value" >> $cfgfile
+    fi
+}
+
+if [ x"$action" == x"-w" ]; then
+    set_value $keyvalue
+elif [ x"$action" == x"-r" ]; then
+    get_value $keyvalue
+else
+    usage
+fi
+

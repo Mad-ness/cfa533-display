@@ -1,0 +1,11 @@
+[Unit]
+Description=CFA-533 LCD control
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/perl /opt/cfa533lcd/lcd.pl -s
+ExecReload=/bin/kill -9 $MAINPID
+KillMode=mixed
+
+[Install]
+WantedBy=multi-user.target
