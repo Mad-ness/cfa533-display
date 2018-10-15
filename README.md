@@ -87,3 +87,12 @@ Check that it is running
 ```
 $ systemctl status cfa533lcd
 ```
+### Dependencies
+The package depends on the basic tools usually presented into each CentOS and many other systems such as **perl** (*lcd.pl*) and **sed** (*readwriteconfig*).
+
+### Test
+This program is tested only on CentOS 7.
+
+### Compatibility
+These program probably might be run without modifications on any of Linux distributives.
+
