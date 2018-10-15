@@ -58,7 +58,7 @@ $ mkdir ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS}
 Copy *.tar.gz* sources and *.spec* files into right places.
 ```
 $ cp cfa533lcd-2.0.tar.gz ~/rpmbuild/SOURCES/
-$ cp cfa533lcd.spec
+$ cp cfa533lcd.spec ~/rpmbuild/SPECS/
 ```
 
 **Step 4. Build an RPM package**
