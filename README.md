@@ -1,5 +1,5 @@
 # CFA-533 display
-The CFA-533 is an intelligent 16x2 character USB LCD with a keypad.
+The CFA-533 is an intelligent 16x2 character USB LCD display with a keypad.
 The repository provides a perl written program to set up the IP address/netmask, default gateway, 
 and IPMI IP details of a server the LCD module is installed to.
 
@@ -16,16 +16,16 @@ Along with the provided source the repository contains *.spec* file to build a R
 
 
 ### File cfa533lcd-2.0-1.el7.noarch.rpm
-This is a ready to install RPM package on RHEL 7/CentOS 7 system.
+This is ready to install a RPM package on RHEL 7/CentOS 7 system.
 
 ## File rpm/cfa533lcd-2.0.tar.gz
-It is a compressed directory cfa533lcd-2.0 produced as ``tar czf cfa533lcd-2.0.tar.gz cfa533lcd-2.0/``.
+It is a compressed directory cfa533lcd-2.0 received as ``tar czf cfa533lcd-2.0.tar.gz cfa533lcd-2.0/``.
 
 ### Directory cfa533lcd/
 The directory contains files:
 - lcd.pl – main executable program
 - lcd.cfg – configuration file
-- readwriteconfig – a heler which modifies files */etc/sysconfig/network-scripts/ifcfg-XXX* when needed
+- readwriteconfig – a helper which modifies files */etc/sysconfig/network-scripts/ifcfg-XXX* when needed
 - cfa533lcd.service - implements a systemclt unit to start/stop *cfa533lcd* service
 
 **Note:** *lcd.pl* has hard-coded paths to *lcd.cfg* and *readwriteconfig*. Currenty these are reffered to as */opt/cfa533lcd/lcd.cfg* and */opt/cfa533lcd/readwriteconfig*. 
@@ -35,7 +35,7 @@ If you install the program into another place make sure these paths are properly
 All these files should be installed on a target system to work properly.
 
 ### Directory rpm/
-It contains file *cfa533lcd.spec* which is needed to a RPM package and *cfa533lcd-2.0.tar.gz* which is needed to the same purpose.
+It contains file *cfa533lcd.spec* which is needed for building a RPM package and *cfa533lcd-2.0.tar.gz* which is needed to the same purpose.
 
 
 ## How to build an RPM package
