@@ -10,7 +10,7 @@ Packager:       Dmitrii Mostovshchikov <dmadm2008@gmail.com>
 BuildRoot:      %{_tmppath}/%{name}-root
 Prefix:         %{_prefix}
 BuildArch:      noarch
-Requires:       perl sed
+Requires:       perl sed ipmitool
 
 
 %description
@@ -33,8 +33,6 @@ install -m 0644 %{name}.service $RPM_BUILD_ROOT/usr/lib/systemd/system/%{name}.s
 /usr/bin/systemctl daemon-reload
 
 %postun
-/usr/bin/systemctl stop %{name}
-/usr/bin/systemctl disable %{name}
 /usr/bin/systemctl daemon-reload
 
 %clean
@@ -49,6 +47,8 @@ rm -rf $RPM_BUILD_ROOT
 /usr/lib/systemd/system/%{name}.service
 
 %changelog
+* Sat Nov 3 2018 Dmitrii Mostovshchikov <dmadm2008@gmail.com>
+- Pdded in the dependence ipmitool
 * Sun Oct 14 2018 Dmitrii Mostovshchikov <dmadm2008@gmail.com>, Denis Zuev <flashdumper@gmail.com>
 - Packaged all files into a RPM package
 - Updated lcd.pl to correctly read and set IP/netmask information on OS network interfaces
