@@ -93,6 +93,9 @@ The package depends on the basic tools usually presented into each CentOS and ma
 ### Test
 This program is tested only on CentOS 7.
 
+### Uninstallation
+Stop the cfa533lcd service and execute *sudo yum remove cfa533lcd*.
+
 ### Compatibility
 These program probably might be run without modifications on any of Linux distributives.
 
