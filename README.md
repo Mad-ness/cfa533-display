@@ -12,7 +12,7 @@ Datasheet `https://www.crystalfontz.com/products/document/3737/CFA533TFHKUv1.4.p
 
 ## Repository information
 
-Along with the provided source the repository contains *.spec* file to build a RPM package for CentOS 7/RHEL 7 and a built such package.
+Along with the provided source the repository contains *.spec* file to build a RPM package for CentOS 7/RHEL 7.
 
 
 ### File cfa533lcd-2.0-1.el7.noarch.rpm
@@ -88,7 +88,7 @@ Check that it is running
 $ systemctl status cfa533lcd
 ```
 ### Dependencies
-The package depends on the basic tools usually presented into each CentOS and many other systems such as **perl** (*lcd.pl*) and **sed** (*readwriteconfig*).
+The package depends on the basic tools usually presented into each CentOS and many other systems such as **perl** (*lcd.pl*) and **sed** (*readwriteconfig*). The only needed package that to be installed in advance or available in preconfigured repositories is **ipmitool**.
 
 ### Test
 This program is tested only on CentOS 7.
