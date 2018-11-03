@@ -15,7 +15,7 @@ Requires:       perl sed ipmitool
 
 %description
 The module provides a userspace program (daemon) and program the Crystalfontz CFA-533 16x2 LCD module.
-It allows to set up ip and netmask on network interfaces and IPMI interface and to set up 
+It allows to set up ip and netmask on network interfaces and IPMI interface and to set up
 a default gateway.
 
 %prep
@@ -31,6 +31,12 @@ install -m 0644 %{name}.service $RPM_BUILD_ROOT/usr/lib/systemd/system/%{name}.s
 
 %post
 /usr/bin/systemctl daemon-reload
+/usr/bin/systemctl start %{name}
+/usr/bin/systemctl enable %{name}
+
+%preun
+/usr/bin/systemctl stop %{name}
+/usr/bin/systemctl disable %{name}
 
 %postun
 /usr/bin/systemctl daemon-reload
@@ -48,7 +54,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %changelog
 * Sat Nov 3 2018 Dmitrii Mostovshchikov <dmadm2008@gmail.com>
-- Pdded in the dependence ipmitool
+- Added in the dependence ipmitool
+- Added stopping the service when uninstalling and enabled starting the service right after installation
 * Sun Oct 14 2018 Dmitrii Mostovshchikov <dmadm2008@gmail.com>, Denis Zuev <flashdumper@gmail.com>
 - Packaged all files into a RPM package
 - Updated lcd.pl to correctly read and set IP/netmask information on OS network interfaces
